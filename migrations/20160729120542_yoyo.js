@@ -1,4 +1,6 @@
 
+
+
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('yoyo', function(table){
     table.increments();
@@ -8,7 +10,7 @@ exports.up = function(knex, Promise) {
     table.string('difficulty');
     table.string('imageURL');
     table.string('videoUrl');
-    table.string('type');
+    table.integer('type_id').references('id').inTable('type').onDelete('cascade');
   })
 };
 
